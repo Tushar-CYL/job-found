@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Results</title>
+</head>
+<body>
+    <h1>Job Listings</h1>
+    {% if job_data %}
+        {% for job in job_data %}
+            <h3>Job Posting Details</h3>
+            <p><strong>Company Name:</strong> {{ job['Company Name'] }}</p>
+            <p><strong>Job Title:</strong> {{ job['Job Title'] }}</p>
+            <p><strong>Location:</strong> {{ job['Location'] }}</p>
+            <p><strong>Website URL:</strong> <a href="{{ job['Website URL'] }}">{{ job['Website URL'] }}</a></p>
+        {% endfor %}
+    {% else %}
+        <p>No Matching Jobs Found</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Search</a>
+</body>
+</html>
